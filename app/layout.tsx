@@ -1,5 +1,3 @@
-export const dynamic = 'force-dynamic'
-
 import '@/app/ui/global.css'
 import { inter } from '@/app/ui/fonts';
 import { Metadata } from 'next';
