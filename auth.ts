@@ -5,8 +5,6 @@ import { z } from 'zod';
 import type { User } from '@/app/lib/definitions';
 import bcrypt from 'bcrypt';
 import postgres from 'postgres';
-import { redirect } from 'next/navigation';
-import { cookies } from 'next/headers';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
  
@@ -44,8 +42,3 @@ export const { auth, signIn, signOut } = NextAuth({
     }),
   ],
 });
-
-export async function signOutServer(redirectTo = '/login') {
-  // Delete the session cookie NextAuth uses
-  redirect(redirectTo);
-}
